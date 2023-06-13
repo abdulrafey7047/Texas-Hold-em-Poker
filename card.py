@@ -1,4 +1,4 @@
-from utils import number_map, reverse_number_map
+from utils import number_map, reverse_number_map, card_suits
 
 
 class Card:
@@ -16,6 +16,9 @@ class Card:
         suit = str_card[1]
 
         if number is None:
-            raise Exception("Invalid Number")
+            raise Exception(f"Invalid Card Number: '{number}', Should be one of {list(number_map.keys())}")
+        if not suit in card_suits:
+            raise Exception(f"Invalid Card Suit: '{suit}', Should be one of {card_suits}")
+
         return Card(number, suit)
 
