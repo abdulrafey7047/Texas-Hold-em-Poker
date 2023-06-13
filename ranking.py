@@ -5,6 +5,7 @@ from card import Card
 from hand import Hand
 from utils import number_map
 
+
 class HandRanking:
 
     @classmethod
@@ -41,12 +42,12 @@ class HandRanking:
 
         return set(highest_cards_possible) == set(highest_cards_in_hand)
 
+    @classmethod
     def _is_royal_flush(cls, hand: Hand) -> bool:
 
         same_suit_cards = cls._most_same_suit_cards(hand)
         if (len(same_suit_cards) >= 5) and cls._in_sequence(same_suit_cards, n=5) and cls._has_highest_cards(same_suit_cards, n=5):
             return True
-
         return False
 
     @classmethod
@@ -55,10 +56,7 @@ class HandRanking:
         same_suit_cards = cls._most_same_suit_cards(hand)
         if (len(same_suit_cards) >= 5) and cls._in_sequence(same_suit_cards, n=5):
             return True
-
         return False
-
-        
 
     @classmethod
     def rank(cls, hand: Hand) -> int:
@@ -67,7 +65,7 @@ class HandRanking:
         number_occurances = Counter(card_numbers_in_hand)
 
         # Royal Flush
-        if cls._is_royal_flush(cls, hand):
+        if cls._is_royal_flush(hand):
             return 10
         # Straight Flush
         elif cls._is_straight_flush(hand):
@@ -76,7 +74,6 @@ class HandRanking:
         elif any(occurance >=4 for occurance in number_occurances.values()):
             return 8
         # Full House
-        # TODO: update this to cater 3 or more and 2 or more
         elif any(occurance >=3 for occurance in number_occurances.values()) and \
              any(occurance >=2 for occurance in sorted(number_occurances.values())[:-1]):
             return 7

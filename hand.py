@@ -2,6 +2,7 @@ from typing import List
 
 from card import Card
 
+
 class Hand:
 
     def __init__(self, cards: List[Card]) -> None:
@@ -21,14 +22,16 @@ class Hand:
         raise StopIteration
 
     @classmethod
-    def from_string(cls, str_hand: List[str]) -> 'Hand':
+    def from_string(cls, str_hand: str) -> 'Hand':
 
-        if len(str_hand) != 7:
-            raise Exception("Invalid Hand")
+        if type(str_hand) != str:
+            raise Exception(f"Invalid Input, the input should be a string")
+            
+        list_hand = str_hand.split()
+        if len(list_hand) != 7:
+            raise Exception(f"Invalid Hand of '{len(list_hand)}' cards, A valid hand must have 7 cards")
 
-        cards = list()
-        for str_card in str_hand:
-            cards.append(Card.from_string(str_card))
+        cards = [ Card.from_string(str_card) for str_card in list_hand ]
 
         return Hand(cards)
 

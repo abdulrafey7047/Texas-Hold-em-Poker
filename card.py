@@ -12,6 +12,10 @@ class Card:
 
     @classmethod
     def from_string(cls, str_card: str) -> 'Card':
+
+        if type(str_card) != str:
+            raise Exception(f"Invalid Input, the input should be a string")
+
         number = number_map.get(str_card[0], None)
         suit = str_card[1]
 
