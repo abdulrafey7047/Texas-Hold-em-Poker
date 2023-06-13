@@ -73,16 +73,18 @@ class HandRanking:
         elif cls._is_straight_flush(hand):
             return 9
         # Four of a Kind
-        elif 4 in number_occurances.values():
+        elif any(occurance >=4 for occurance in number_occurances.values()):
             return 8
         # Full House
-        elif (3 in number_occurances.values()) and (2 in number_occurances.values()):
+        # TODO: update this to cater 3 or more and 2 or more
+        elif any(occurance >=3 for occurance in number_occurances.values()) and \
+             any(occurance >=2 for occurance in sorted(number_occurances.values())[:-1]):
             return 7
         # Flush
         elif len(cls._most_same_suit_cards(hand)) >= 5:
             return 6
         # Straight
-        elif  cls._in_sequence(hand, n=5):
+        elif cls._in_sequence(hand, n=5):
             return 5
         # Three of a Kind
         elif 3 in number_occurances.values():
