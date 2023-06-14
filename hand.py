@@ -9,6 +9,10 @@ class Hand:
         self.cards = cards
         self._current_index = 0
 
+    def __repr__(self):
+        return f'{self.__class__.__name__}(cards={self.cards})'
+        
+
     def __iter__(self):
         return self
 
@@ -33,5 +37,10 @@ class Hand:
 
         cards = [ Card.from_string(str_card) for str_card in list_hand ]
 
+        print(Hand(cards))
         return Hand(cards)
+
+    def get_highest_card(self):
+
+        return max(self.cards)
 

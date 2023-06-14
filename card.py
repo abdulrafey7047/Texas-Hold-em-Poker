@@ -8,7 +8,16 @@ class Card:
         self.suit = suit
 
     def __repr__(self):
-        return f'{reverse_number_map[self.number]}{self.suit}'
+        return f"{self.__class__.__name__}(number={reverse_number_map[self.number]}, suit={self.suit})"
+
+    def __lt__(self, card: 'Card') -> bool:
+        return self.number < card.number
+
+    def __gt__(self, card: 'Card') -> bool:
+        return self.number > card.number
+
+    def __eq__(self, card: 'Card') -> bool:
+        return self.number == card.number
 
     @classmethod
     def from_string(cls, str_card: str) -> 'Card':
