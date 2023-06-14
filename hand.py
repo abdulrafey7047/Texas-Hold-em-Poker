@@ -37,7 +37,6 @@ class Hand:
 
         cards = [ Card.from_string(str_card) for str_card in list_hand ]
 
-        print(Hand(cards))
         return Hand(cards)
 
     def get_highest_card(self):
