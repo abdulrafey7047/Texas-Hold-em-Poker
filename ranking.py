@@ -6,7 +6,7 @@ from hand import Hand
 from utils import number_map
 
 
-class HandRanking:
+class HandRanker:
 
     @classmethod
     def _most_same_suit_cards(cls, hand: Hand) -> List[Card]:
