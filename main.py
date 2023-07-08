@@ -1,20 +1,19 @@
-import json
-
+import sys
 from game import Game
-from player import Player
 
-game = Game.from_json('sample_data.json')
+
+if len(sys.argv) != 2:
+    print('Usage: python main.py <path_to/game_data_file.json>')
+    sys.exit(1)
+
+game_data_file_path = sys.argv[1]
+try:
+    game = Game.from_json(game_data_file_path)
+except FileNotFoundError as e:
+    print(e)
+    sys.exit(1)
+
 winners = game.find_winner()
 
 for winner in winners:
     print(winner)
-
-
-# with open('game_1.json') as f:
-#     game_data = json.load(f)
-
-
-# for player_data in game_data['players']:
-
-#     player = Player.from_dict(player_data)
-#     print(player.hand.get_highest_card().number)
