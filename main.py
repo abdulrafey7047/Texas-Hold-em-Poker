@@ -16,4 +16,4 @@ except FileNotFoundError as e:
 winners = game.find_winner()
 
 for winner in winners:
-    print(winner)
+    print(f'Winner: {winner}, Hand Rank: {winner.rank}')
