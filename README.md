@@ -23,7 +23,7 @@ This repository contains a Python implementation of Texas Hold'em, a popular pok
 
 ## Usage
 
-- First you need to place your game's data in a json file in the same format as [sample_data.json](#).
+- First you need to place your game's data in a json file in the same format as [sample_data.json](https://github.com/abdulrafey7047/Texas-Hold-em-Poker/blob/main/sample_data.json).
 
 - The following tables shows how the crads and suits must be represented for the `Game` class to determine the winner(s)
 
