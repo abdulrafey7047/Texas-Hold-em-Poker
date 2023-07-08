@@ -1,0 +1,13 @@
+{
+    "players": [
+        {"id": "Player-1", "hand": "9C KD 4H AS JC TS 6C"},
+        {"id": "Player-2", "hand": "9C KD 4H AS JC QH 3D"},
+        {"id": "Player-3", "hand": "9C KD 4H AS JC 2C KS"},
+        {"id": "Player-4", "hand": "9C KD 4H AS JC 7H AD"},
+        {"id": "Player-5", "hand": "9C KD 4H AS JC 9D JS"},
+        {"id": "Player-6", "hand": "9C KD 4H AS JC 4C 8D"},
+        {"id": "Player-7", "hand": "9C KD 4H AS JC AH 5S"},
+        {"id": "Player-8", "hand": "9C KD 4H AS JC 6D TH"}
+    ]
+}
+

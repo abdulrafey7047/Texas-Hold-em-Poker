@@ -3,7 +3,7 @@ import json
 from game import Game
 from player import Player
 
-game = Game.from_json('game_1.json')
+game = Game.from_json('sample_data.json')
 winners = game.find_winner()
 
 for winner in winners:
